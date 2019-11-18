@@ -28,6 +28,9 @@ int main()
 	v3 = v1 * 2.f;
 	std::cout << "Multiply Vector 3 by value of 2: " << v3 << std::endl;
 
+	v2 = v2 * v1;
+	std::cout << "Vector 2 is now the Scalar product of Vector 2 and Vector 1: " << v2 << std::endl;
+
 	v3 *= 2.f;
 	std::cout << "Multiply Vector 3 by value of 2 again: " << v3 << std::endl;
 
@@ -35,13 +38,17 @@ int main()
 	std::cout << "Divide Vector 3 by value of 2: " << v3 << std::endl;
 
 	v3 /= 2.f;
-	std::cout << "Divide Vector 3 by value of 3 again: " << v3 << std::endl << std::endl;
+	std::cout << "Divide Vector 3 by value of 3: " << v3 << std::endl << std::endl;
 
 	v3.normalize();
 	std::cout << "Normalize Vector 3: " << v3 << std::endl << std::endl;
 
 	v3 = v1.cross(v2);
-	std::cout << "Cross Vector 1 and 2 to get Vector 3: " << v3 << std::endl;
+	std::cout << "Cross Vector 1 and 2 to get Vector 3: " << v3 << std::endl << std::endl;
+
+	v3.addScaledVector(v1, 1.5f);
+	std::cout << "Add scaled vector " << v1 << " scaled by 1.5f to Vector 3: " << v3 << std::endl;
+	std::cout << "Scaled vector is " << (1.5f * v1) << std::endl << std::endl;
 
 	std::cout << "___________________________________________" << std::endl;
 	std::cout << "Matrices:" << std::endl;

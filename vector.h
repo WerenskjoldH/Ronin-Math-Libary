@@ -53,6 +53,7 @@ namespace rn {
 			return *this;
 		}
 
+		// Add components to eachother and set equal
 		void operator+=(const vector3f & v)
 		{
 			x += v.x;
@@ -60,6 +61,7 @@ namespace rn {
 			z += v.z;
 		}
 
+		// Subtract components from eachother and set equal
 		void operator-=(const vector3f & v)
 		{
 			x -= v.x;
@@ -67,6 +69,7 @@ namespace rn {
 			z -= v.z;
 		}
 
+		// Multiply vector by scalar and set equal
 		void operator*=(const real & s)
 		{
 			x *= s;
@@ -74,6 +77,7 @@ namespace rn {
 			z *= s;
 		}
 
+		// Divide vector by scalar and set equal
 		void operator/=(const real & s)
 		{
 			x = x / s;
@@ -87,27 +91,32 @@ namespace rn {
 			*this = cross(v);
 		}
 
-		vector3f operator*(const vector3f & v) const
+		// Calculate scalar product and return result
+		real operator*(const vector3f & v) const
 		{
 			return x*v.x + y*v.y + z*v.z;
 		}
 
+		// Divide by scalar and return result
 		vector3f operator/(const real s) const
 		{
 			return vector3f(x / s, y / s, z / s);
 		}
 
+		// Cross vectors and return result
 		vector3f operator%(const vector3f & v)
 		{
 			return cross(v);
 		}
 
+		// Multiply component-wise by scalar and return result
 		vector3f operator*(const real s) const
 		{
 			return vector3f(s*x, s*y, x*z);
 		}
 
 #ifdef MATRIX_H
+		// Multiply by matrix and return result
 		vector3f operator*(matrix m) const
 		{
 			return vector3f(x*m(0, 0) + y * m(1, 0) + z * m(2, 0),
@@ -116,21 +125,25 @@ namespace rn {
 		}
 #endif
 
+		// Subtract component-wise and return result
 		vector3f operator-(const vector3f & v) const
 		{
 			return vector3f(x - v.x, y - v.y, z - v.z);
 		}
 
+		// Add component-wise and return result
 		vector3f operator+(const vector3f & v) const
 		{
 			return vector3f(x + v.x, y + v.y, z + v.z);
 		}
 
+		// Negate components and return result
 		vector3f operator-() const
 		{
 			return vector3f(-x, -y, -z);
 		}
 
+		// Access components array-wise for modification
 		real& operator[](int i)
 		{
 			switch (i)
@@ -149,6 +162,7 @@ namespace rn {
 			}
 		}
 
+		// Access components array-wise for reading
 		real operator[](int i) const
 		{
 			switch (i)
@@ -167,21 +181,25 @@ namespace rn {
 			}
 		}
 
+		// Vector cross product
 		vector3f cross(const vector3f & v) const
 		{
 			return vector3f(y*v.z - z * v.y, z*v.x - x * v.z, x*v.y - y * v.x);
 		}
 
+		// Calculate component-wise product and return result
 		vector3f componentProduct(const vector3f &v) const
 		{
 			return vector3f(x*v.x, y*v.y, z*v.z);
 		}
 
+		// Calculate the unit vector and return result
 		vector3f unit()
 		{
 			return vector3f(*this / this->magnitude());
 		}
 
+		// Invert components 
 		void invert()
 		{
 			x *= -1;
@@ -189,19 +207,31 @@ namespace rn {
 			z *= -1;
 		}
 
+		// Normalize the vector and set equal
 		void normalize()
 		{
 			(*this) = (*this).unit();
 		}
 
+		// Return magnitude of vector
 		real magnitude()
 		{
 			return std::sqrtf(x * x + y * y + z * z);
 		}
 
+		// Calculate squared magnitude and return result
 		real squaredMagnitude()
 		{
 			return x * x + y * y + z * z;
+		}
+		
+		// Borrowing this straight from Ian Millington
+		// Add given vector scaled by float and set equal
+		void addScaledVector(const vector3f &v, real t)
+		{
+			x += v.x * t;
+			y += v.y * t;
+			z += v.z * t;
 		}
 	};
 
