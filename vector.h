@@ -80,9 +80,10 @@ namespace rn {
 		// Divide vector by scalar and set equal
 		void operator/=(const real & s)
 		{
-			x = x / s;
-			y = y / s;
-			z = z / s;
+			real mag = 1.f / s;
+			x = x * mag;
+			y = y * mag;
+			z = z * mag;
 		}
 
 		// Vector cross product
@@ -91,7 +92,7 @@ namespace rn {
 			*this = cross(v);
 		}
 
-		// Calculate scalar product and return result
+		// Calculate scalar(dot) product and return result
 		real operator*(const vector3f & v) const
 		{
 			return x*v.x + y*v.y + z*v.z;
@@ -100,7 +101,8 @@ namespace rn {
 		// Divide by scalar and return result
 		vector3f operator/(const real s) const
 		{
-			return vector3f(x / s, y / s, z / s);
+			real mag = 1.f / s;
+			return vector3f(x * mag, y * mag, z * mag);
 		}
 
 		// Cross vectors and return result
@@ -109,7 +111,7 @@ namespace rn {
 			return cross(v);
 		}
 
-		// Multiply component-wise by scalar and return result
+		// Returns scalar product
 		vector3f operator*(const real s) const
 		{
 			return vector3f(s*x, s*y, x*z);
@@ -344,21 +346,23 @@ namespace rn {
 
 		void operator/=(const real & s)
 		{
-			x = x / s;
-			y = y / s;
-			z = z / s;
-			w = w / s;
+			real mag = 1.f / s;
+			x = x * mag;
+			y = y * mag;
+			z = z * mag;
+			w = w * mag;
 		}
 
-		// This is NOT the dot product
-		vector4f operator*(const vector4f & v) const
+		// Scalar(dot) product
+		real operator*(const vector4f & v) const
 		{
-			return vector4f(x*v.x, y*v.y, z*v.z, w*v.w);
+			return x*v.x + y*v.y + z*v.z + w*v.w;
 		}
 
 		vector4f operator/(const real s) const
 		{
-			return vector4f(x / s, y / s, z / s, w / s);
+			real mag = 1.f / s;
+			return vector4f(x * mag, y * mag, z * mag, w * mag);
 		}
 
 		
@@ -463,7 +467,17 @@ namespace rn {
 		}
 		real squaredMagnitude()
 		{
-			return x*x + y * y + z * z + w * w;
+			return x * x + y * y + z * z + w * w;
+		}
+
+		// Borrowing this straight from Ian Millington
+		// Add given vector scaled by float and set equal
+		void addScaledVector(const vector4f& v, real t)
+		{
+			x += v.x * t;
+			y += v.y * t;
+			z += v.z * t;
+			w += v.w * t;
 		}
 };
 
