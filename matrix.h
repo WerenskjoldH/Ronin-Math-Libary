@@ -78,7 +78,7 @@ namespace rn {
 			}
 			catch (std::exception &e)
 			{
-				throw "Failure to add matrices: Make sure rows and column sizes are equal";
+				throw "Failure to set matrix equal: Make sure rows and column sizes are equal";
 			}
 
 		}
@@ -149,7 +149,7 @@ namespace rn {
 			}
 			catch (std::exception &e)
 			{
-				throw "Failure to add matrices: Make sure rows and column sizes are equal";
+				throw "Failure to subtract matrices: Make sure rows and column sizes are equal";
 			}
 		}
 
