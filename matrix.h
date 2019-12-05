@@ -196,6 +196,7 @@ namespace rn {
 		}
 
 
+
 	};
 
 	matrix operator*(const real s, matrix& const m)

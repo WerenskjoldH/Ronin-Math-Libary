@@ -111,7 +111,7 @@ namespace rn {
 			return cross(v);
 		}
 
-		// Returns scalar product
+		// Returns scalar(dot) product
 		vector3f operator*(const real s) const
 		{
 			return vector3f(s*x, s*y, x*z);
@@ -138,7 +138,7 @@ namespace rn {
 		{
 			return vector3f(x + v.x, y + v.y, z + v.z);
 		}
-
+		
 		// Negate components and return result
 		vector3f operator-() const
 		{
@@ -196,7 +196,7 @@ namespace rn {
 		}
 
 		// Calculate the unit vector and return result
-		vector3f unit()
+		vector3f unit() const
 		{
 			return vector3f(*this / this->magnitude());
 		}
@@ -216,7 +216,7 @@ namespace rn {
 		}
 
 		// Return magnitude of vector
-		real magnitude()
+		real magnitude() const
 		{
 			return std::sqrtf(x * x + y * y + z * z);
 		}
@@ -235,6 +235,13 @@ namespace rn {
 			y += v.y * t;
 			z += v.z * t;
 		}
+
+		real angleBetween(const vector3f& v) const
+		{
+			vector3f aU = this->unit();
+			vector3f bU = v.unit();
+			return acosf(aU*bU);
+		}
 	};
 
 	std::ostream& operator<<(std::ostream& os, const vector3f& v)
@@ -247,6 +254,7 @@ namespace rn {
 		return vector3f(s*v.x, s*v.y, s*v.z);
 	}
 
+	// Or scalar product
 	real dot(const vector3f& o, const vector3f& v)
 	{
 		return o.x * v.x + o.y * v.y + o.z * v.z;

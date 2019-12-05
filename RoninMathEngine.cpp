@@ -92,6 +92,12 @@ int main()
 	v1 = v1 * m1;
 	std::cout << "Vector 1 dotted by Matrix 1 is:" << std::endl << v1 << std::endl;
 
+	rn::vector3f v4(0.5f, 0.5f, 0.f);
+	rn::vector3f v5(1.f, 0.f, 0.f);
+
+	std::cout << "Vector 4: " << v4 << std::endl << "Vector 5: " << v5 << std::endl;
+	std::cout << "Then angle between vector 4 and vector 5 is: " << rn::toDegrees(v4.angleBetween(v5)) << std::endl;
+
 	//system("PAUSE");
     return 0;
 }
