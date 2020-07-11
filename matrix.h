@@ -66,21 +66,20 @@ namespace rn {
 		}
 
 		// Operator Overloads
-		matrix& operator=(matrix& const m)
+		matrix& operator=(const matrix& m)
 		{
 			try
 			{
 				for (int x = 0; x < rowSize; x++)
 					for (int y = 0; y < rowSize; y++)
-						ij[x][y] = m(x, y);
+						ij[x][y] = m.ij[x][y];
 
 				return *this;
 			}
-			catch (std::exception &e)
+			catch (std::exception& e)
 			{
 				throw "Failure to set matrix equal: Make sure rows and column sizes are equal";
 			}
-
 		}
 
 		void operator+=(matrix & const m)
@@ -210,7 +209,7 @@ namespace rn {
 		return temp;
 	}
 
-	matrix operator*(matrix& const m, const real s)
+	matrix operator*(matrix&  m, const real s)
 	{
 
 		matrix temp = m;
