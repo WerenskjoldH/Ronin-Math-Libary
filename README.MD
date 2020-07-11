@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-
+---
 ***
 ## Purpose
 
@@ -36,7 +36,6 @@ What's supported? Well I'll tell ya'!
 
 ***
 ## Usage
-***
 
 When developing this library, I focused primarily on readability, as can be seen below.
 
@@ -109,7 +108,6 @@ The sample code below should explain the basic functionality of the library:
 
 ***
 ## Q&A
-***
 
 ### *Q*: How do I use this library?
 
