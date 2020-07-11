@@ -2,7 +2,7 @@
 
 <h4 align="center">Light-weight and Unburdened Vector & Matrix Header-Only Library</p>
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
 ---
 ***
