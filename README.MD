@@ -19,7 +19,7 @@ This library has been updated as my project's call for different functionality. 
 
 ---
 
-## Functionality
+## Key Features
 
 What's supported? Well I'll tell ya'!
 
@@ -42,7 +42,7 @@ What's supported? Well I'll tell ya'!
 
 ## Usage
 
-When developing this library, I focused primarily on readability, as can be seen below.
+When developing this library, I focused primarily on readability to ensure working with this library was as smooth as possible for me.
 
 The sample code below should explain the basic functionality of the library:
 
@@ -120,6 +120,14 @@ The sample code below should explain the basic functionality of the library:
 
 ---
 
+## Acknowledgements
+
+- Ian Millington, for his fantastic book "Game Physics Engine Development". This book is seriously fantastic if you are interested in developing a modular and portable modern physics engine!
+
+* Eric Lengyel, for his equally great book titled "Mathematics for 3D Game Programming and Computer Graphics". This book has been a great review of my college mathematics curriculum. The chapters on numerical methods, curves, and linear physics are superb!
+
+---
+
 ## Q&A
 
 ### _Q_: Why make it header-only?
@@ -129,3 +137,7 @@ The sample code below should explain the basic functionality of the library:
 ### _Q_: Will you continue developing this library?
 
 **A**: Certainly! However, only when I find a need to add something will I add it to the master branch. I am doing my best to avoid bloat. (`randomInUnitSphere()` is more useful than it seems, I swear! )
+
+### _Q_: Using 3D Vectors for 2D work feels cumbersome...
+
+**A**: I understand this complaint, I do a lot of small projects in SDL2 and having to assert that nothing funky happens with that third dimension can be annoying. I intend to add a _vector2_ class sometime soon. Perhaps even a more streamlined 2D version of this library.
