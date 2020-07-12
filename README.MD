@@ -128,6 +128,16 @@ The sample code below should explain the basic functionality of the library:
 
 ---
 
+## Support
+
+If you are looking for support please send a non-spammy looking email to Rilliden@gmail.com. If you are unsure what to write for the title, try something in this format:
+
+```
+[Repository Name] <Question>
+```
+
+---
+
 ## Q&A
 
 ### _Q_: Why make it header-only?
