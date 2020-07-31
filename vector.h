@@ -114,7 +114,7 @@ namespace rn
 		// Returns scalar(dot) product
 		vector3f operator*(const real s) const
 		{
-			return vector3f(s * x, s * y, x * z);
+			return vector3f(s * x, s * y, s * z);
 		}
 
 #ifdef MATRIX_H
@@ -401,7 +401,7 @@ namespace rn
 
 		vector4f operator*(const real s) const
 		{
-			return vector4f(s * x, s * y, x * z, w * z);
+			return vector4f(s * x, s * y, s * z, s * z);
 		}
 
 #ifdef MATRIX_H
